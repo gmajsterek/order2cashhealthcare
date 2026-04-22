@@ -30,7 +30,7 @@ const ICON_COLORS: Record<string, string> = {
 
 export default function Dashboard() {
   const [completedAgents, setCompletedAgents] = useState<Set<string>>(new Set());
-  const [_ignored, forceUpdate] = useState(0);
+  const [renderCount, forceUpdate] = useState(0);
 
   useEffect(() => {
     const completed = new Set<string>();
