@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { UserCheck, AlertCircle, CheckCircle2 } from 'lucide-react';
 

@@ -1,7 +1,4 @@
-'use client';
-
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, useLocation } from 'react-router-dom';
 import { Activity, ClipboardCheck, Truck, MessageSquare, MapPin, AlertTriangle, Shield, BarChart3, ChevronRight } from 'lucide-react';
 
 const navItems = [
@@ -15,7 +12,7 @@ const navItems = [
 ];
 
 export default function Sidebar() {
-  const pathname = usePathname();
+  const location = useLocation();
 
   return (
     <aside className="w-64 bg-slate-900 text-white flex flex-col min-h-screen">
@@ -36,11 +33,11 @@ export default function Sidebar() {
       <nav className="flex-1 px-3 py-4 space-y-1">
         {navItems.map((item) => {
           const Icon = item.icon;
-          const isActive = pathname === item.href;
+          const isActive = location.pathname === item.href;
           return (
             <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
                 isActive
                   ? 'bg-sky-600 text-white'

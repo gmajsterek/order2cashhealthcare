@@ -1,7 +1,5 @@
-'use client';
-
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { getAgentDecision } from '../lib/audit';
 
@@ -38,7 +36,7 @@ export default function PipelineProgress({ currentStep }: PipelineProgressProps)
           const isCurrent = currentStep === step.key;
           return (
             <div key={step.key} className="flex items-center gap-2 flex-shrink-0">
-              <Link href={`/agents/${step.key}`} className="flex flex-col items-center gap-1 group">
+              <Link to={`/agents/${step.key}`} className="flex flex-col items-center gap-1 group">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
                   isCompleted
                     ? 'bg-green-500 text-white'

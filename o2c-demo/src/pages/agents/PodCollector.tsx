@@ -1,14 +1,12 @@
-'use client';
-
 import { useState, useCallback } from 'react';
 import { Shield, ArrowLeft, Home } from 'lucide-react';
-import Link from 'next/link';
-import AgentProcessing from '../../../components/AgentProcessing';
-import HITLGate from '../../../components/HITLGate';
-import AuditTrail from '../../../components/AuditTrail';
-import PipelineProgress from '../../../components/PipelineProgress';
-import { addAuditEntry, getAgentDecision } from '../../../lib/audit';
-import { PROCESSING_STEPS, HITL_SCENARIOS } from '../../../data/synthetic';
+import { Link } from 'react-router-dom';
+import AgentProcessing from '../../components/AgentProcessing';
+import HITLGate from '../../components/HITLGate';
+import AuditTrail from '../../components/AuditTrail';
+import PipelineProgress from '../../components/PipelineProgress';
+import { addAuditEntry, getAgentDecision } from '../../lib/audit';
+import { PROCESSING_STEPS, HITL_SCENARIOS } from '../../data/synthetic';
 
 export default function PODCollectorPage() {
   const existing = getAgentDecision('pod-collector');
@@ -103,11 +101,11 @@ export default function PODCollectorPage() {
       </div>
 
       <div className="flex justify-between mt-8">
-        <Link href="/agents/dispute" className="flex items-center gap-2 text-slate-500 hover:text-slate-700">
+        <Link to="/agents/dispute" className="flex items-center gap-2 text-slate-500 hover:text-slate-700">
           <ArrowLeft className="h-4 w-4" /> Dispute & Recovery
         </Link>
         {phase === 'complete' && (
-          <Link href="/" className="flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 font-semibold transition-colors">
+          <Link to="/" className="flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 font-semibold transition-colors">
             <Home className="h-4 w-4" /> Return to Dashboard
           </Link>
         )}

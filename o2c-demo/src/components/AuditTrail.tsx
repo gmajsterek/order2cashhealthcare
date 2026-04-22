@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 import { FileText, Clock, User, Shield } from 'lucide-react';
 import { AuditEntry } from '../lib/types';

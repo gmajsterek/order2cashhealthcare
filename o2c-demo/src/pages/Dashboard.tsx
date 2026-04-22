@@ -1,7 +1,5 @@
-'use client';
-
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Activity, CheckCircle2, Clock, ClipboardCheck, Truck, MessageSquare, MapPin, AlertTriangle, Shield, RotateCcw } from 'lucide-react';
 import { getAgentDecision, clearAuditLog } from '../lib/audit';
 import { ORDER_DATA, AGENTS } from '../data/synthetic';
@@ -135,7 +133,7 @@ export default function Dashboard() {
             return (
               <Link
                 key={agent.key}
-                href={agent.href}
+                to={agent.href}
                 className={`group block bg-white rounded-xl shadow-sm border-l-4 border border-slate-200 p-5 hover:shadow-md transition-all ${STATUS_COLORS[agent.color]}`}
               >
                 <div className="flex items-start justify-between mb-3">
@@ -172,7 +170,7 @@ export default function Dashboard() {
             <h3 className="text-xl font-bold mb-2">Ready to Start the Demo?</h3>
             <p className="text-sky-100 mb-4">Walk through all 6 AI agents with human-in-the-loop decision points</p>
             <Link
-              href="/agents/order-capture"
+              to="/agents/order-capture"
               className="inline-flex items-center gap-2 bg-white text-sky-700 font-semibold px-6 py-3 rounded-lg hover:bg-sky-50 transition-colors"
             >
               Start Demo <ArrowRight className="h-4 w-4" />

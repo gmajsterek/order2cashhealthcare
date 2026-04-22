@@ -1,14 +1,12 @@
-'use client';
-
 import { useState, useCallback } from 'react';
 import { MapPin, ArrowRight, ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
-import AgentProcessing from '../../../components/AgentProcessing';
-import HITLGate from '../../../components/HITLGate';
-import AuditTrail from '../../../components/AuditTrail';
-import PipelineProgress from '../../../components/PipelineProgress';
-import { addAuditEntry, getAgentDecision } from '../../../lib/audit';
-import { PROCESSING_STEPS, HITL_SCENARIOS } from '../../../data/synthetic';
+import { Link } from 'react-router-dom';
+import AgentProcessing from '../../components/AgentProcessing';
+import HITLGate from '../../components/HITLGate';
+import AuditTrail from '../../components/AuditTrail';
+import PipelineProgress from '../../components/PipelineProgress';
+import { addAuditEntry, getAgentDecision } from '../../lib/audit';
+import { PROCESSING_STEPS, HITL_SCENARIOS } from '../../data/synthetic';
 
 export default function ShipmentTrackingPage() {
   const existing = getAgentDecision('shipment-tracking');
@@ -90,11 +88,11 @@ export default function ShipmentTrackingPage() {
       </div>
 
       <div className="flex justify-between mt-8">
-        <Link href="/agents/order-status" className="flex items-center gap-2 text-slate-500 hover:text-slate-700">
+        <Link to="/agents/order-status" className="flex items-center gap-2 text-slate-500 hover:text-slate-700">
           <ArrowLeft className="h-4 w-4" /> Order Status
         </Link>
         {phase === 'complete' && (
-          <Link href="/agents/dispute" className="flex items-center gap-2 bg-sky-600 text-white px-6 py-3 rounded-lg hover:bg-sky-700 font-semibold transition-colors">
+          <Link to="/agents/dispute" className="flex items-center gap-2 bg-sky-600 text-white px-6 py-3 rounded-lg hover:bg-sky-700 font-semibold transition-colors">
             Next: Dispute & Recovery <ArrowRight className="h-4 w-4" />
           </Link>
         )}
