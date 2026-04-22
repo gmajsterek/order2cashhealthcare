@@ -1,12 +1,20 @@
 import { defineConfig } from "eslint/config";
-import globals from "globals";
 
 const eslintConfig = defineConfig([
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
+      ecmaVersion: 2020,
       globals: {
-        ...globals.browser,
+        window: "readonly",
+        document: "readonly",
+        localStorage: "readonly",
+        setTimeout: "readonly",
+        clearTimeout: "readonly",
+        Date: "readonly",
+        Math: "readonly",
+        console: "readonly",
+        JSON: "readonly",
       },
     },
   },
