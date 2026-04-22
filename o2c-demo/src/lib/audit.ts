@@ -15,7 +15,7 @@ export function getAuditLog(): AuditEntry[] {
 export function addAuditEntry(entry: Omit<AuditEntry, 'id' | 'timestamp'>): AuditEntry {
   const newEntry: AuditEntry = {
     ...entry,
-    id: `audit-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+    id: `audit-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`,
     timestamp: new Date().toISOString(),
   };
   

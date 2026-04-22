@@ -63,7 +63,7 @@ export default function HITLGate({
         <div className="bg-white rounded-lg p-3 border border-green-200">
           {Object.entries(approvedDecision).map(([key, value]) => (
             <div key={key} className="flex gap-2 text-sm py-1">
-              <span className="text-slate-500 capitalize">{key.replace(/([A-Z])/g, ' $1')}:</span>
+              <span className="text-slate-500 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}:</span>
               <span className="font-medium text-slate-800">{value}</span>
             </div>
           ))}
